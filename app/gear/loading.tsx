@@ -1,0 +1,1 @@
+export default function Loading(){return <div className="page container"><div className="skeleton" style={{height:50,width:280,marginBottom:30}}/><div className="grid gear-grid">{[1,2,3,4,5,6].map(i=><div className="skeleton" key={i}/>)}</div></div>}
