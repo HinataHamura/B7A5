@@ -1,0 +1,1 @@
+import Link from "next/link";export default function NotFound(){return <div className="auth-wrap"><div className="card auth-card" style={{textAlign:"center"}}><span className="badge">404</span><h1>That trail goes nowhere</h1><p className="muted">The page or gear listing may have moved.</p><Link className="btn" href="/gear">Browse gear</Link></div></div>}
