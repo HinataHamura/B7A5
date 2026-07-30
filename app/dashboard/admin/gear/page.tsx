@@ -1,0 +1,1 @@
+import { GearModeration } from "@/components/admin-tables";export default function Page(){return <><h1 className="section-title">Gear moderation</h1><p className="muted">Inspect every listing across the marketplace.</p><GearModeration/></>}

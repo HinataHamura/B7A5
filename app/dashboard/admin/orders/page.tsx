@@ -1,0 +1,1 @@
+import { OrderModeration } from "@/components/admin-tables";export default function Page(){return <><h1 className="section-title">All rental orders</h1><p className="muted">A global view of marketplace activity.</p><OrderModeration/></>}
