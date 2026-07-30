@@ -1,0 +1,2 @@
+import Link from "next/link"; import { Suspense } from "react"; import { Card } from "@/components/ui"; import { LoginForm } from "@/components/login-form";
+export default function Login(){return <div className="auth-wrap"><Card className="auth-card"><span className="badge">Welcome back</span><h1>Sign in to GearUp</h1><p className="muted">Access rentals, listings, and your dashboard.</p><Suspense><LoginForm/></Suspense><p>New here? <Link href="/auth/register" style={{color:"#18794e",fontWeight:700}}>Create an account</Link></p></Card></div>}
