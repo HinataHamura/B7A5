@@ -1,0 +1,2 @@
+import Link from "next/link";import { XCircle } from "lucide-react";import { Card } from "@/components/ui";
+export default function Cancel(){return <div className="auth-wrap"><Card className="auth-card" style={{textAlign:"center"}}><XCircle size={64} color="#b42318" style={{margin:"auto"}}/><h1>Payment cancelled</h1><p className="muted">Nothing was charged. Your confirmed rental remains available in your dashboard.</p><Link className="btn" href="/dashboard/customer">Return to rentals</Link></Card></div>}
