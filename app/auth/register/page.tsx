@@ -1,0 +1,2 @@
+import Link from "next/link"; import { Card } from "@/components/ui"; import { RegisterForm } from "@/components/register-form";
+export default function Register(){return <div className="auth-wrap"><Card className="auth-card"><span className="badge">Join the community</span><h1>Create your account</h1><p className="muted">Rent great gear or earn by sharing yours.</p><RegisterForm/><p>Already registered? <Link href="/auth/login" style={{color:"#18794e",fontWeight:700}}>Sign in</Link></p></Card></div>}
