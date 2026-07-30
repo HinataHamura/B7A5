@@ -1,0 +1,2 @@
+import Link from "next/link";
+export function Footer(){return <footer className="footer"><div className="container footer-grid"><div><div className="logo">Gear<b>Up</b></div><p>Great adventures should be accessible, not expensive. Rent quality gear when you need it.</p></div><div><b>Explore</b><p><Link href="/gear">Browse gear</Link></p><p><Link href="/auth/register">Become a provider</Link></p></div><div><b>Support</b><p>help@gearup.demo</p><p>Dhaka, Bangladesh</p></div></div></footer>}
