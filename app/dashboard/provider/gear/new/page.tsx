@@ -1,0 +1,1 @@
+import { GearForm } from "@/components/gear-form";export default function NewGear(){return <><h1 className="section-title">Add new gear</h1><p className="muted">Create a clear, accurate listing renters can trust.</p><GearForm/></>}
