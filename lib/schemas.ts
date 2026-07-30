@@ -1,0 +1,5 @@
+import { z } from "zod";
+export const loginSchema=z.object({email:z.email("Enter a valid email address"),password:z.string().min(8,"Password must be at least 8 characters")});
+export const registerSchema=z.object({name:z.string().min(2,"Name must be at least 2 characters"),email:z.email("Enter a valid email address"),password:z.string().min(8,"Use at least 8 characters").regex(/[A-Z]/,"Include an uppercase letter").regex(/[0-9]/,"Include a number"),role:z.enum(["CUSTOMER","PROVIDER"]),agree:z.literal(true,{error:"You must accept the terms"})});
+export const gearSchema=z.object({name:z.string().min(3,"Name is required"),category:z.string().min(2,"Choose a category"),brand:z.string().min(2,"Brand is required"),pricePerDay:z.coerce.number().positive("Price must be greater than zero"),stock:z.coerce.number().int().min(0,"Stock cannot be negative"),image:z.url("Enter a valid image URL"),description:z.string().min(20,"Add at least 20 characters"),available:z.boolean()});
+export const reviewSchema=z.object({rating:z.coerce.number().min(1).max(5),comment:z.string().min(10,"Write at least 10 characters").max(500)});
