@@ -1,11 +1,12 @@
 # GearUp Submission Checklist
 
-- Frontend repository: add after pushing to GitHub
-- Live frontend: add after deploying to Vercel
-- Backend API: set in `.env.local` and add its public URL here
-- Demo video: add the public Loom/Drive link here
-- Admin email: `admin@gearup.demo` (replace with a seeded production admin)
-- Admin password: `Demo123!` (replace for production and provide the evaluator account)
+- Frontend repository: https://github.com/HinataHamura/B7A5
+- Live frontend: https://gearup-assessment-5.vercel.app
+- Backend API: https://b7a4-ynt3.onrender.com
+- Backend repository: https://github.com/HinataHamura/B7A4
+- Demo video: **ADD YOUR PUBLIC LOOM/GOOGLE DRIVE LINK BEFORE SUBMISSION**
+- Admin email: `admin@gearup.com`
+- Admin password: `Admin123!`
 
 ## 7–10 minute video outline
 
