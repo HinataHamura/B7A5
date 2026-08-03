@@ -1,3 +1,16 @@
 "use client";
-import Link from "next/link";import { useQuery } from "@tanstack/react-query";import { getRentals } from "@/lib/api";import { money,statusClass } from "@/lib/utils";import { Card } from "@/components/ui";import { ReviewForm } from "@/components/review-form";
-export default function CustomerDashboard(){const {data=[],isLoading,error}=useQuery({queryKey:["rentals"],queryFn:()=>getRentals()});return <><span className="badge">Customer dashboard</span><h1 className="section-title">Your rentals</h1><div className="stats">{[[data.length,"Total rentals"],[data.filter(x=>x.status==="PICKED_UP").length,"Active rentals"],[money(data.reduce((a,b)=>a+b.total,0)),"Lifetime spend"]].map(([v,l])=><Card className="stat" key={l}><strong>{v}</strong><span className="muted">{l}</span></Card>)}</div><Card style={{marginTop:25}}><div className="table-wrap"><table className="table"><thead><tr><th>Order</th><th>Gear</th><th>Dates</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody>{isLoading?<tr><td colSpan={6}>Loading rentals…</td></tr>:error?<tr><td colSpan={6}>Could not load rentals.</td></tr>:data.map(r=><tr key={r.id}><td>{r.id}</td><td>{r.gear.name}</td><td>{r.startDate} — {r.endDate}</td><td>{money(r.total)}</td><td><span className={statusClass(r.status)}>{r.status.replace("_"," ")}</span></td><td>{r.status==="CONFIRMED"?<Link className="btn" href={`/dashboard/customer/orders/${r.id}/pay`}>Pay now</Link>:r.status==="RETURNED"?<details><summary className="btn btn-outline">Leave review</summary><div style={{width:300,padding:12}}><ReviewForm rentalId={r.id}/></div></details>:"—"}</td></tr>)}</tbody></table></div></Card></>}
+import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { getRentals } from "@/lib/api";
+import { money,statusClass } from "@/lib/utils";
+import { Card } from "@/components/ui";
+import { ReviewForm } from "@/components/review-form";
+
+export default function CustomerDashboard(){
+ const {data=[],isLoading,error}=useQuery({queryKey:["rentals"],queryFn:()=>getRentals()});
+ return <><span className="badge">Customer dashboard</span><h1 className="section-title">Your rentals</h1>
+ <div className="stats">{[[data.length,"Total rentals"],[data.filter(x=>x.status==="PICKED_UP").length,"Active rentals"],[money(data.reduce((a,b)=>a+b.total,0)),"Lifetime spend"]].map(([v,l])=><Card className="stat" key={l}><strong>{v}</strong><span className="muted">{l}</span></Card>)}</div>
+ <Card style={{marginTop:25}}><div className="table-wrap"><table className="table"><thead><tr><th>Order</th><th>Gear</th><th>Dates</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody>
+ {isLoading?<tr><td colSpan={6}>Loading rentals…</td></tr>:error?<tr><td colSpan={6}>Could not load rentals.</td></tr>:data.map(r=><tr key={r.id}><td>{r.id}</td><td>{r.gear.name}</td><td>{r.startDate} — {r.endDate}</td><td>{money(r.total)}</td><td><span className={statusClass(r.status)}>{r.status.replace("_"," ")}</span></td><td>{r.status==="CONFIRMED"?<Link className="btn" href={`/dashboard/customer/orders/${r.id}/pay`}>Pay now</Link>:r.status==="RETURNED"?<details><summary className="btn btn-outline">Leave review</summary><div style={{width:300,padding:12}}><ReviewForm gearItemId={r.gear.id}/></div></details>:"—"}</td></tr>)}
+ </tbody></table></div></Card></>
+}
